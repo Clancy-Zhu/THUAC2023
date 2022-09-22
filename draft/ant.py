@@ -29,16 +29,16 @@ class Ant:
 
         if self.X != 0 and lastpath != 2:
             #prob[0] = (pow(map[self.X][self.Y][0], 3) + 1)/(20-self.X-self.Y)
-            prob[0] = max(pow(map[self.X][self.Y][0], 3), 0.000001)/1.5
+            prob[0] = max(pow(map[self.X][self.Y][0], 3), 0.001)/1.5
         if self.Y != 0 and lastpath != 3:
             #prob[1] = (pow(map[self.X][self.Y][1], 3) + 1)/(20-self.X-self.Y)
-            prob[1] = max(pow(map[self.X][self.Y][1], 3), 0.000001)/1.5
+            prob[1] = max(pow(map[self.X][self.Y][1], 3), 0.001)/1.5
         if self.X != 9 and lastpath != 0:
             #prob[2] = (pow(map[self.X][self.Y][2], 3) + 1)/(18-self.X-self.Y)
-            prob[2] = max(pow(map[self.X][self.Y][2], 3), 0.000001)
+            prob[2] = max(pow(map[self.X][self.Y][2], 3), 0.001)
         if self.Y != 9 and lastpath != 1:
             #prob[3] = (pow(map[self.X][self.Y][3], 3) + 1)/(18-self.X-self.Y)
-            prob[3] = max(pow(map[self.X][self.Y][3], 3), 0.000001)
+            prob[3] = max(pow(map[self.X][self.Y][3], 3), 0.001)
 
         totprob = prob[0] + prob[1] + prob[2] + prob[3]
         P = random.random()*totprob
@@ -77,8 +77,6 @@ for i in range(1000):
         Antlst.append(Ant(i))
 
     for a in Antlst:
-        if a.X == 9 and a.Y == 9:
-            continue
         a.move()
         if a.X == 9 and a.Y == 9:
             a.HP = 0
@@ -128,4 +126,4 @@ for i in range(1000):
 
 print("Die:    ", Die)
 print("Succeed:", Suc)
-print("Old    :", Old)
+print("Old:    ", Old)
